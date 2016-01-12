@@ -1,0 +1,54 @@
+body {
+	margin: auto;
+	width: 1039px;
+	font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	background-color: #000000;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	background-position: center;
+}
+
+div.heading {
+	display: block; 
+	height:300px;
+	width: 100%;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: hidden; 
+    margin: 20px auto;
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #D2B48C;
+	border: 10px inset #824D0A;
+	border-radius: 15px;
+	text-align: center;
+	vertical-align: center;
+	font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+}
+div.game {
+	display: block;
+	width: 100%;
+	height: 600px;
+	position: relative;
+	padding: 10px;
+    background-color: #D2B48C;
+	border: 10px inset #824D0A;
+	border-radius: 15px;
+    opacity: 0.85;
+    filter: alpha(opacity=60);
+	font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	overflow-x: hidden;
+	overflow-y: hidden scroll;	
+}
+table {
+    border: 1px solid black;
+	width: 100%;
+}
+td {
+	border: 1px solid black;
+	padding: 10px;
+	width: 50%;
+
+}
