@@ -1,8 +1,9 @@
 body {
 	margin: auto;
-	width: 1039px;
-	font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	width: 700px;
+	font-family:"Comic Sans", Comic Sans MS;
 	font-size: 20px;
+	color: #FFFF99;
 	background-color: #000000;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -12,42 +13,56 @@ body {
 div.heading {
 	display: block; 
 	height:300px;
-	width: 100%;
+	width: 700px;
 	position: relative;
 	padding-left: 10px;
 	padding-right: 10px;
 	overflow: hidden; 
-    margin: 20px auto;
+    margin: 10px auto;
+	background-image: url(pictures/heading.jpg);
 	background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-color: #D2B48C;
-	border: 10px inset #824D0A;
-	border-radius: 15px;
+    background-color: #000000;
+	border-radius: 5px;
 	text-align: center;
 	vertical-align: center;
 	font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 }
+
+div.buttons {
+	display: block;
+	width: 720px;
+	height: 410px;
+	position: relative;
+	padding-top: 22px;
+    background-image: url(pictures/chalkboard-background.jpg);
+	background-size: 100% 100%;
+	border-radius: 5px;
+	font-family: "Comic Sans", Comic Sans MS;
+	overflow-x: hidden;
+	overflow-y: hidden scroll;
+}
+
 div.game {
 	display: block;
-	width: 100%;
-	height: 600px;
+	width: 720px;
+	height: 410px;
 	position: relative;
-	padding: 10px;
-    background-color: #D2B48C;
-	border: 10px inset #824D0A;
-	border-radius: 15px;
-    opacity: 0.85;
-    filter: alpha(opacity=60);
-	font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	padding-top: 22px;
+    background-image: url(pictures/chalkboard-background.jpg);
+	background-size: 100% 100%;
+	border-radius: 5px;
+	font-family: "Comic Sans", Comic Sans MS;
 	overflow-x: hidden;
 	overflow-y: hidden scroll;	
 }
 table {
-    border: 1px solid black;
-	width: 100%;
+	margin: 0 auto;
+
+	width: 92%;
 }
 td {
-	border: 1px solid black;
+    border-bottom: 2px dashed #FFFF99;
 	padding: 10px;
 	width: 50%;
 

@@ -5,6 +5,24 @@ function userInputMessage(message) {
 	return userInput;
 }
 
+function calcTemperature() {
+	var temperature;
+	var maxTemp;
+	var minTemp;
+	maxTemp = 100;
+	minTemp = 50;
+	temperature = Math.floor(Math.random() * (maxTemp - minTemp) + minTemp);
+	return temperature;
+}
+
+function calcWeatherForcast() {
+	var weather;
+	var currentWeather;
+	weather = ["Sunny", "Clowdy", "Foggy", "Rain!"];
+	currentWeather = weather[Math.floor(Math.random() * weather.length)];
+	return currentWeather;	
+}
+
 function calcInventory(quantity) {
 	var price;
 	var quantity1;
@@ -26,70 +44,198 @@ function calcInventory(quantity) {
 	return total;
 }
 
-function calcRandomNum1() {
+function calcRandomHighest() {
+	return Math.floor((Math.random() * 10) + 5);
+}
+
+function calcRandomHigh() {
 	return Math.floor((Math.random() * 7) + 3);
 }
 
-function calcRandomNum2() {
-	return Math.floor((Math.random() * 4) + 1);
+function calcRandomMedium() {
+	return Math.floor((Math.random() * 4) + 3);
 }
 
-function calcRandomNum3() {
+function calcRandomLow() {
+	return Math.floor((Math.random() * 3) + 2);
+}
+
+function calcRandomLowest() {
 	return Math.floor((Math.random() * 1) + 1);
 }
 
-function calcCupsSold(currentTemp, price, totalCups) {
+function calcSunnyWeather(currentTemp, price, totalCups) {
 	var temperature;
 	temperature = [59, 69, 79, 89, 100];
 	var priceRange;
-	priceRange = [.25, .40, .60, .80, 1.25, 2.00];
+	priceRange = [.25, .35, .45, .55, .65, .75];
 	var cupsSold;
 	
 	if (currentTemp <= temperature[0] && price <= priceRange[0]) {
-		cupsSold = totalCups / calcRandomNum2();
+		cupsSold = totalCups / calcRandomMedium();
 	}
 	else if (currentTemp <= temperature[0] && price <= priceRange[1]) {
-		cupsSold = totalCups / calcRandomNum1();
+		cupsSold = totalCups / calcRandomHighest();
 	}
 	else if (currentTemp <= temperature[0] && price > priceRange[1]) {
 		cupsSold = 0;
 	}
 	
 	else if (currentTemp <= temperature[1] && price <= priceRange[1]) {
-		cupsSold = totalCups / calcRandomNum2();
+		cupsSold = totalCups / calcRandomLow();
 	}
 	else if (currentTemp <= temperature[1] && price <= priceRange[2]) {
-		cupsSold = totalCups / calcRandomNum1();
+		cupsSold = totalCups / calcRandomHighest();
 	}
 	else if (currentTemp <= temperature[1] && price > priceRange[2]) {
 		cupsSold = 0;
 	}
 		
 	else if (currentTemp <= temperature[2] && price <= priceRange[2]) {
-		cupsSold = totalCups / calcRandomNum2();
+		cupsSold = totalCups / calcRandomLowest();
 	}
 	else if (currentTemp <= temperature[2] && price <= priceRange[3]) {
-		cupsSold = totalCups / calcRandomNum1();
+		cupsSold = totalCups / calcRandomHighest();
 	}
 	else if (currentTemp <= temperature[2] && price > priceRange[3]) {
 		cupsSold = 0;
 	}
 		
 	else if (currentTemp <= temperature[3] && price <= priceRange[3]) {
-		cupsSold = totalCups / calcRandomNum3();
+		cupsSold = totalCups / calcRandomLowest();
 	}
 	else if (currentTemp <= temperature[3] && price <= priceRange[4]) {
-		cupsSold = totalCups / calcRandomNum1();
+		cupsSold = totalCups / calcRandomMedium();
 	}
 	else if (currentTemp <= temperature[3] && price > priceRange[4]) {
 		cupsSold = 0;
 	}
 		
 	else if (currentTemp <= temperature[4] && price <= priceRange[4]) {
-		cupsSold = totalCups / calcRandomNum3();
+		cupsSold = totalCups / calcRandomLowest();
 	}
 	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
-		cupsSold = totalCups / calcRandomNum1();
+		cupsSold = totalCups / calcRandomLow();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+		cupsSold = 0;
+	}
+	
+	return cupsSold;
+}
+
+function calcClowdyWeather(currentTemp, price, totalCups) {
+	var temperature;
+	temperature = [59, 69, 79, 89, 100];
+	var priceRange;
+	priceRange = [.25, .35, .45, .55, .65, .75];
+	var cupsSold;
+	
+	if (currentTemp <= temperature[0] && price <= priceRange[0]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[0] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[1]) {
+		cupsSold = 0;
+	}
+	
+	else if (currentTemp <= temperature[1] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[1] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[1] && price > priceRange[2]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[2] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcRandomLow();
+	}
+	else if (currentTemp <= temperature[2] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcRandomHigh();
+	}
+	else if (currentTemp <= temperature[2] && price > priceRange[3]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[3] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcRandomLow();
+	}
+	else if (currentTemp <= temperature[3] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[3] && price > priceRange[4]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[4] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcRandomLowest();
+	}
+	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+		cupsSold = 0;
+	}
+	
+	return cupsSold;
+}
+
+function calcRainWeather(currentTemp, price, totalCups) {
+	var temperature;
+	temperature = [59, 69, 79, 89, 100];
+	var priceRange;
+	priceRange = [.25, .35, .45, .55, .65, .75];
+	var cupsSold;
+	
+	if (currentTemp <= temperature[0] && price <= priceRange[0]) {
+		cupsSold = totalCups / calcRandomHigh();
+	}
+	else if (currentTemp <= temperature[0] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[1]) {
+		cupsSold = 0;
+	}
+	
+	else if (currentTemp <= temperature[1] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcRandomHigh();
+	}
+	else if (currentTemp <= temperature[1] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[1] && price > priceRange[2]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[2] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[2] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[2] && price > priceRange[3]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[3] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[3] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcRandomHighest();
+	}
+	else if (currentTemp <= temperature[3] && price > priceRange[4]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[4] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcRandomMedium();
+	}
+	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
+		cupsSold = totalCups / calcRandomHighest();
 	}
 	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
 		cupsSold = 0;
@@ -115,8 +261,12 @@ function calcGrossProfit(priceSold, cupsSold) {
 	return grossProfit;
 }
 
-function displayWeather(weather, temperature) {
-	document.getElementById(weather).innerHTML=temperature + " degrees fahrenheit";	
+function displayTemperature(htmlTemperature, currentTemperature) {
+	document.getElementById(htmlTemperature).innerHTML=currentTemperature + " degrees fahrenheit";	
+}
+
+function displayWeather(htmlWeather, currentWeather) {
+	document.getElementById(htmlWeather).innerHTML=currentWeather;	
 }
 
 function displayBudget(htmlBudget, scriptBudget) {
@@ -135,10 +285,6 @@ function displayGrossProfit(htmlGross, grossProfit) {
 	document.getElementById(htmlGross).innerHTML="$ " + grossProfit.toFixed(0);
 }
 
-function calcWeather() {
-	return Math.floor((Math.random() * 50) + 50);
-}
-
 function reloadPage () {
 	location.reload();
 }
@@ -155,8 +301,8 @@ var startGameMessage;
 var startGameInput;
 
 var currentTemperature;
+var currentWeather;
 
-var lemonadeInventory;
 var calcInventoryMessage;
 var inventoryInput;
 var inventoryOutput;
@@ -170,28 +316,42 @@ var grossProfit;
 var budget;
 
 budget = 20;
-displayBudget("htmlBudget", budget);
 
 startGameMessage = "Would you like to open for business? 'Y' for Yes or 'N' for No.";
 startGameInput = userInputMessage(startGameMessage);
 
+displayBudget("htmlBudget", budget);
+
 while (startGameInput === "Y" || startGameInput === "y") {
 
-currentTemperature = (calcWeather());
-displayWeather("weather", currentTemperature);
+currentTemperature = (calcTemperature());
+displayTemperature("htmlTemperature", currentTemperature);
+currentWeather = (calcWeatherForcast());
+displayWeather("htmlWeather", currentWeather);
 
-calcInventoryMessage = "How many glasses of lemonade would you like to purchase: 25 for $0.15, 50 for $0.13, or 100 for $.10?";
+calcInventoryMessage = "How many glasses of lemonade would you like to purchase: 25 for $0.30, 50 for $0.25, or 100 for $.20?";
 inventoryInput = userInputMessage(calcInventoryMessage);
 displayInventory("htmlInventory", inventoryInput);
 inventoryOutput = (calcInventory(inventoryInput));
-
 
 budget = calcBudgetInventory(budget, inventoryOutput);
 displayBudget("htmlBudget", budget);
 
 priceMessage = "How much would you like to sell each glass of lemonade for?";
 priceInput = userInputMessage(priceMessage);
-totalCupsSold = calcCupsSold(currentTemperature, priceInput, inventoryInput);
+
+if (currentWeather === "Sunny"){
+	totalCupsSold = calcSunnyWeather(currentTemperature, priceInput, inventoryInput);
+}
+else if (currentWeather === "Clowdy") {
+	totalCupsSold = calcClowdyWeather(currentTemperature, priceInput, inventoryInput);
+}
+else if (currentWeather === "Foggy") {
+	totalCupsSold = calcFoggyWeather(currentTemperature, priceInput, inventoryInput);
+}
+else if (currentWeather === "Rain!") {
+	totalCupsSold = calcRainWeather(currentTemperature, priceInput, inventoryInput);
+}
 displayCupsSold("htmlCups", totalCupsSold);
 
 grossProfit = calcGrossProfit(priceInput, totalCupsSold);
@@ -238,4 +398,69 @@ function newBudgetMessage(budget) {
 
 budget = budget - inventoryOutput;
 budget = budget + grossProfit;
+
+
+function calcCupsSold(currentTemp, price, totalCups) {
+	var temperature;
+	temperature = [59, 69, 79, 89, 100];
+	var priceRange;
+	priceRange = [.25, .35, .45, .55, .65, .75];
+	var cupsSold;
+	
+	if (currentTemp <= temperature[0] && price <= priceRange[0]) {
+		cupsSold = totalCups / calcSunnyNum2();
+	}
+	else if (currentTemp <= temperature[0] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcSunnyNum1();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[1]) {
+		cupsSold = 0;
+	}
+	
+	else if (currentTemp <= temperature[1] && price <= priceRange[1]) {
+		cupsSold = totalCups / calcSunnyNum2();
+	}
+	else if (currentTemp <= temperature[1] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcSunnyNum1();
+	}
+	else if (currentTemp <= temperature[1] && price > priceRange[2]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[2] && price <= priceRange[2]) {
+		cupsSold = totalCups / calcSunnyNum2();
+	}
+	else if (currentTemp <= temperature[2] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcSunnyNum1();
+	}
+	else if (currentTemp <= temperature[2] && price > priceRange[3]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[3] && price <= priceRange[3]) {
+		cupsSold = totalCups / calcSunnyNum3();
+	}
+	else if (currentTemp <= temperature[3] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcSunnyNum1();
+	}
+	else if (currentTemp <= temperature[3] && price > priceRange[4]) {
+		cupsSold = 0;
+	}
+		
+	else if (currentTemp <= temperature[4] && price <= priceRange[4]) {
+		cupsSold = totalCups / calcSunnyNum3();
+	}
+	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
+		cupsSold = totalCups / calcSunnyNum1();
+	}
+	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+		cupsSold = 0;
+	}
+	
+	return cupsSold;
+}
+
+calcCupsSold(currentTemperature, priceInput, inventoryInput);
+
+
 */
