@@ -8,79 +8,48 @@
 		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	</head>
 	<body>
-	<div class="heading">
-
-	</div>
-	
-	<div class="buttons">
-	
-	<button type="button" id="startDayButton">Start Day</button>
-	
-
-	<p><select name="productList" id="productList" type="reset" value="reset">
-	<option selected disabled value="0">Wholesale Options</option>
-    <option value="25">25 cups for $0.15</option>
-    <option value="50">50 cups for $0.10 each</option>
-    <option value="100">100 cups for $0.05 each</option>
-	</select>
-
-	
-	
-	
-
-	<button type="button" id="productButton">Purchase Product</button>
-
-
-	<input type="number" step="0.01" min="0" max="1" id="htmlPriceInput" name="htmlPriceInput" placeholder="Selling Price">
-
-	
-
-	<button type="button" id="sellButton">Start Selling</button></p>
-
-
-
-	
-	
-	</div>
-	
-	<div class="game">
-	
-		<table>
-		
-			<tr>
-				<td>High temperature for the day:</td>
-				<td  id="htmlTemperature"></td>
-			</tr>
-		
-			<tr>
-				<td>Weather forcast for the day:</td>
-				<td id="htmlWeather"></td>
-			</tr>
-
-			<tr>
-				<td>Spending budget:</td>
-				<td id="htmlBudget"></td>
-			</tr>
-			
-			<tr>
-				<td>Total cups of lemonade in inventory:</td>
-				<td id="htmlInventory"></td>
-			</tr>
-
-			<tr>
-				<td>Total cups of lemonade sold today:</td>
-				<td id="htmlCups"></td></b>
-			</tr>
-
-			<tr>
-				<td>Gross sales:</td>
-				<td id="htmlGross"></td>
-			</tr>
-
-		</table>
-	
-	</div>
-		
+		<div class="heading">
+		</div>
+		<div class="buttons">
+			<button type="button" id="startDayButton">Start Day</button>
+			<p><select name="productList" id="productList" type="reset" value="reset">
+				<option selected disabled value="0">Wholesale Options</option>
+				<option value="25">25 cups for $0.15</option>
+				<option value="50">50 cups for $0.10 each</option>
+				<option value="100">100 cups for $0.05 each</option>
+			</select>
+			<button type="button" id="productButton">Purchase Product</button>
+			<input type="number" step="0.01" min="0" max="5" id="htmlPriceInput" name="htmlPriceInput" placeholder="Selling Price">
+			<button type="button" id="sellButton">Start Selling</button></p>
+		</div>
+		<div class="game">
+			<table>
+				<tr>
+					<td>High temperature for the day:</td>
+					<td  id="htmlTemperature"></td>
+				</tr>
+				<tr>
+					<td>Weather forcast for the day:</td>
+					<td id="htmlWeather"></td>
+				</tr>
+				<tr>
+					<td>Spending budget:</td>
+					<td id="htmlBudget"></td>
+				</tr>
+				<tr>
+					<td>Total cups of lemonade in inventory:</td>
+					<td id="htmlInventory"></td>
+				</tr>
+				<tr>
+					<td>Total cups of lemonade sold today:</td>
+					<td id="htmlCups"></td></b>
+				</tr>
+				<tr>
+					<td>Gross sales:</td>
+					<td id="htmlGross"></td>
+				</tr>
+			</table>
+		</div>	
 	<script src="scripts/script.js"></script>
 	</body>
 </html>

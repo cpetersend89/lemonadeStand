@@ -117,7 +117,7 @@ function calcSunnyWeather(currentTemp, price, totalCups) {
 	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
 		cupsSold = totalCups / calcRandomLow();
 	}
-	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+	else if (currentTemp <= temperature[4] && price > priceRange[5]) {
 		cupsSold = 0;
 	}
 	
@@ -177,7 +177,7 @@ function calcCloudyWeather(currentTemp, price, totalCups) {
 	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
 		cupsSold = totalCups / calcRandomMedium();
 	}
-	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+	else if (currentTemp <= temperature[4] && price > priceRange[5]) {
 		cupsSold = 0;
 	}
 	
@@ -237,7 +237,7 @@ function calcRainWeather(currentTemp, price, totalCups) {
 	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
 		cupsSold = totalCups / calcRandomHighest();
 	}
-	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
+	else if (currentTemp <= temperature[4] && price > priceRange[5]) {
 		cupsSold = 0;
 	}
 	
@@ -320,7 +320,7 @@ function setBackground(currentWeather) {
 }
 
 function endDay() {
-	alert("You have reached the end of " + days[i] + ", click 'START DAY' to begin a new day");
+	alert("You have reached the end of the day, click 'START DAY' to begin a new day");
 }
 
 function resetBoard(htmlTemperature, htmlWeather, htmlInventory, htmlCups, htmlGross, htmlPriceInput, productList) {
@@ -333,7 +333,6 @@ function resetBoard(htmlTemperature, htmlWeather, htmlInventory, htmlCups, htmlG
 	document.getElementById(productList).selectedIndex=0;
 	
 }
-
 
 function disableStartButton(startDayButton){
 	document.getElementById(startDayButton).disabled=true;
@@ -359,34 +358,25 @@ function enableSellButton(sellButton) {
 	document.getElementById(sellButton).disabled=false;
 }
 
-
-
 function main() {
 var startDayButton;
 var productButton;
 var sellButton;
-	
 var inventory;	
 var startGameMessage;
 var startGameInput;
-
 var currentTemperature;
 var currentWeather;
-
 var calcInventoryMessage;
 var inventoryInput;
 var inventoryOutput;
-
 var priceMessage;
 var priceInput;
-
 var totalCupsSold;
 var grossProfit;
-
 var budget;
 
 budget = 20;
-
 
 enableStartButton("startDayButton");
 disableProductButton("productButton");
@@ -394,9 +384,6 @@ disableSellButton("sellButton");
 resetBoard("htmlTemperature", "htmlWeather", "htmlInventory", "htmlCups", "htmlGross", "htmlPriceInput", "productList");
 
 startDayButton = document.getElementById("startDayButton");
-
-
-
 startDayButton.onclick= function (){
 resetBoard("htmlTemperature", "htmlWeather", "htmlInventory", "htmlCups", "htmlGross", "htmlPriceInput", "productList");
 displayBudget("htmlBudget", budget);
@@ -415,20 +402,15 @@ inventory = document.getElementById("productList");
 inventoryInput = inventory.options[inventory.selectedIndex].value;
 displayInventory("htmlInventory", inventoryInput);
 inventoryOutput = (calcProductCost(inventoryInput));
-
 budget = calcBudgetInventory(budget, inventoryOutput, "htmlInventory", "sellButton");
 displayBudget("htmlBudget", budget);
 disableProductButton("productButton")
 enableSellButton("sellButton");
 }
 
-
-
-
 sellButton = document.getElementById("sellButton");
 sellButton.onclick= function() {
 priceInput = document.getElementById("htmlPriceInput").value;
-
 if (currentWeather === "Sunny"){
 	totalCupsSold = calcSunnyWeather(currentTemperature, priceInput, inventoryInput);
 }
@@ -439,194 +421,14 @@ else if (currentWeather === "Rain!") {
 	totalCupsSold = calcRainWeather(currentTemperature, priceInput, inventoryInput);
 }
 displayCupsSold("htmlCups", totalCupsSold);
-
 grossProfit = calcGrossProfit(priceInput, totalCupsSold);
 displayGrossProfit("htmlGross", grossProfit);
-
 budget = calcBudgetGross(budget, grossProfit);
 displayBudget("htmlBudget", budget);
 disableSellButton("sellButton");
 enableStartButton("startDayButton");
-
 checkGameStatus(budget);
 endDay();
-
 }
-
-
-
 }
-
 main();
-
-
-
-
-
-
-
-/*
-
-
-
-
-function weatherAlertMessage(temperature) {
-	alert("Today's weather is " + temperature + " degrees fahrenheit.");	
-}
-
-weatherAlertMessage(currentTemperature);
-
-function inventoryMessage(totalCups) {
-	console.log("Total inventory for the day: " + totalCups + " glasses of lemonade.");
-}
-
-inventoryMessage(inventoryInput);
-
-function cupsSoldMessage(cupsSold) {
-	console.log("You sold " + cupsSold.toFixed(0) + " cups of lemonade today.");
-}
-
-cupsSoldMessage(totalCupsSold);
-
-function grossProfitMessage(grossProfit) {
-	console.log("You earned" + " $" + grossProfit.toFixed(0) + " from lemonade sales.");
-}
-
-grossProfitMessage(grossProfit);
-
-function newBudgetMessage(budget) {
-	console.log("Your new budget for tomorrow is:" + " $" + budget.toFixed(0));
-}
-
-budget = budget - inventoryOutput;
-budget = budget + grossProfit;
-
-
-function calcCupsSold(currentTemp, price, totalCups) {
-	var temperature;
-	temperature = [59, 69, 79, 89, 100];
-	var priceRange;
-	priceRange = [.25, .35, .45, .55, .65, .75];
-	var cupsSold;
-	
-	if (currentTemp <= temperature[0] && price <= priceRange[0]) {
-		cupsSold = totalCups / calcSunnyNum2();
-	}
-	else if (currentTemp <= temperature[0] && price <= priceRange[1]) {
-		cupsSold = totalCups / calcSunnyNum1();
-	}
-	else if (currentTemp <= temperature[0] && price > priceRange[1]) {
-		cupsSold = 0;
-	}
-	
-	else if (currentTemp <= temperature[1] && price <= priceRange[1]) {
-		cupsSold = totalCups / calcSunnyNum2();
-	}
-	else if (currentTemp <= temperature[1] && price <= priceRange[2]) {
-		cupsSold = totalCups / calcSunnyNum1();
-	}
-	else if (currentTemp <= temperature[1] && price > priceRange[2]) {
-		cupsSold = 0;
-	}
-		
-	else if (currentTemp <= temperature[2] && price <= priceRange[2]) {
-		cupsSold = totalCups / calcSunnyNum2();
-	}
-	else if (currentTemp <= temperature[2] && price <= priceRange[3]) {
-		cupsSold = totalCups / calcSunnyNum1();
-	}
-	else if (currentTemp <= temperature[2] && price > priceRange[3]) {
-		cupsSold = 0;
-	}
-		
-	else if (currentTemp <= temperature[3] && price <= priceRange[3]) {
-		cupsSold = totalCups / calcSunnyNum3();
-	}
-	else if (currentTemp <= temperature[3] && price <= priceRange[4]) {
-		cupsSold = totalCups / calcSunnyNum1();
-	}
-	else if (currentTemp <= temperature[3] && price > priceRange[4]) {
-		cupsSold = 0;
-	}
-		
-	else if (currentTemp <= temperature[4] && price <= priceRange[4]) {
-		cupsSold = totalCups / calcSunnyNum3();
-	}
-	else if (currentTemp <= temperature[4] && price <= priceRange[5]) {
-		cupsSold = totalCups / calcSunnyNum1();
-	}
-	else if (currentTemp <= temperature[0] && price > priceRange[5]) {
-		cupsSold = 0;
-	}
-	
-	return cupsSold;
-}
-
-calcCupsSold(currentTemperature, priceInput, inventoryInput);
-
-
-
-
-
-
-
-while (startGameInput === "Y" || startGameInput === "y") {
-
-currentTemperature = (calcTemperature());
-displayTemperature("htmlTemperature", currentTemperature);
-currentWeather = (calcWeatherForcast());
-displayWeather("htmlWeather", currentWeather);
-
-calcInventoryMessage = "How many glasses of lemonade would you like to purchase: 25 for $0.30, 50 for $0.25, or 100 for $.20?";
-inventoryInput = userInputMessage(calcInventoryMessage);
-displayInventory("htmlInventory", inventoryInput);
-inventoryOutput = (calcInventory(inventoryInput));
-
-budget = calcBudgetInventory(budget, inventoryOutput);
-displayBudget("htmlBudget", budget);
-
-priceMessage = "How much would you like to sell each glass of lemonade for?";
-priceInput = userInputMessage(priceMessage);
-
-if (currentWeather === "Sunny"){
-	totalCupsSold = calcSunnyWeather(currentTemperature, priceInput, inventoryInput);
-}
-else if (currentWeather === "Cloudy") {
-	totalCupsSold = calcCloudyWeather(currentTemperature, priceInput, inventoryInput);
-}
-else if (currentWeather === "Foggy") {
-	totalCupsSold = calcFoggyWeather(currentTemperature, priceInput, inventoryInput);
-}
-else if (currentWeather === "Rain!") {
-	totalCupsSold = calcRainWeather(currentTemperature, priceInput, inventoryInput);
-}
-displayCupsSold("htmlCups", totalCupsSold);
-
-grossProfit = calcGrossProfit(priceInput, totalCupsSold);
-displayGrossProfit("htmlGross", grossProfit);
-
-budget = calcBudgetGross(budget, grossProfit);
-displayBudget("htmlBudget", budget);
-
-checkGameStatus(budget);
-
-startGameInput = userInputMessage(startGameMessage);
-
-}
-
-//calcInventoryMessage = "How many glasses of lemonade would you like to purchase: 25 for $0.30, 50 for $0.25, or 100 for $.20?";
-
-
-startGameMessage = "Would you like to open for business? 'Y' for Yes or 'N' for No.";
-startGameInput = userInputMessage(startGameMessage);
-
-
-
-while (startGameInput === "Y" || startGameInput === "y") {
-
-
-
-startGameInput = userInputMessage(startGameMessage);
-
-priceMessage = "How much would you like to sell each glass of lemonade for?";
-*/
