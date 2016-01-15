@@ -1,10 +1,11 @@
 body {
 	margin: auto;
-	width: 700px;
+	width: 1000px;
 	font-family:"Comic Sans", Comic Sans MS;
 	font-size: 20px;
 	color: #FFFF99;
 	background-color: #000000;
+	background-image: url(pictures/background.jpg);
 	background-attachment: fixed;
 	background-size: 100% 100%;
 	background-position: center;
@@ -12,42 +13,85 @@ body {
 
 div.heading {
 	display: block; 
-	height:300px;
-	width: 700px;
-	position: relative;
+	height: 597px;
+	width: 245px;
+	float: left;
 	padding-left: 10px;
 	padding-right: 10px;
 	overflow: hidden; 
-    margin: 10px auto;
-	background-image: url(pictures/heading.jpg);
+    margin: 20px auto;
 	background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-color: #000000;
+    background-image: url(pictures/heading.jpg);
 	border-radius: 5px;
-	text-align: center;
 	vertical-align: center;
-	font-family: "Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+	opacity: 0.90;
+    filter: alpha(opacity=60);
 }
 
+
 div.buttons {
+	margin: 20px auto;
 	display: block;
-	width: 720px;
-	height: 410px;
+	float: right;
+	text-align: center;
+	width: 700px;
+	height: 125px;
 	position: relative;
-	padding-top: 22px;
-    background-image: url(pictures/chalkboard-background.jpg);
+	padding: 10px;
+    background: #FFFF99;
 	background-size: 100% 100%;
 	border-radius: 5px;
 	font-family: "Comic Sans", Comic Sans MS;
 	overflow-x: hidden;
 	overflow-y: hidden scroll;
+	opacity: 0.90;
+    filter: alpha(opacity=60);
+}
+
+#startDayButton {
+	width: 690px;
+	background-color: #282828;
+	color: #FFFF99;
+	border-radius: 5px;	
+	padding: 10px;
+	font-size: 25px;
+	font-weight: bold;
+
+}
+
+#productList {
+	width: 165px;
+	font-size: 16px;
+	padding: 5px;
+}
+#productButton {
+	width: 165px;
+	border-radius: 5px;
+	background-color: #282828;
+	color: #FFFF99;
+	font-size: 16px;
+	padding: 5px;
+}
+#htmlPriceInput {
+	width: 165px;
+	font-size: 16px;
+	padding: 5px;
+}
+#sellButton {
+	width: 165px;
+	border-radius: 5px;
+	background-color: #282828;
+	color: #FFFF99;
+	font-size: 16px;
+	padding: 5px;
 }
 
 div.game {
 	display: block;
 	width: 720px;
 	height: 410px;
-	position: relative;
+	float: right;
 	padding-top: 22px;
     background-image: url(pictures/chalkboard-background.jpg);
 	background-size: 100% 100%;
@@ -55,6 +99,8 @@ div.game {
 	font-family: "Comic Sans", Comic Sans MS;
 	overflow-x: hidden;
 	overflow-y: hidden scroll;	
+	opacity: 0.90;
+    filter: alpha(opacity=60);
 }
 table {
 	margin: 0 auto;
@@ -65,5 +111,5 @@ td {
     border-bottom: 2px dashed #FFFF99;
 	padding: 10px;
 	width: 50%;
-
 }
+
